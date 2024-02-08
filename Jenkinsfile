@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    parameters {
-        choice(name: 'VERSION', choices: ['1.0', '1.1', '1.2'])
-        booleanParam(name: 'Run', defaultValue: true)
-    }
     stages {
         stage('Clone Application Code') {
             steps {
@@ -15,3 +11,5 @@ pipeline {
                 sh 'mvn package -f pom.xml'
             }
         }
+    }
+}
